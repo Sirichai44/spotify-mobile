@@ -4,6 +4,7 @@ import 'package:spotify_flutter/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_flutter/core/configs/assets/app_images.dart';
 import 'package:spotify_flutter/core/configs/assets/app_vectors.dart';
 import 'package:spotify_flutter/core/configs/theme/app_color.dart';
+import 'package:spotify_flutter/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -48,7 +49,30 @@ class GetStartedPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 BasicAppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const ChooseModePage(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            const begin = 0.0;
+                            const end = 1.0;
+                            const curve = Curves.easeInOut;
+
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var fadeAnimation = animation.drive(tween);
+
+                            return FadeTransition(
+                              opacity: fadeAnimation,
+                              child: child,
+                            );
+                          },
+                        ));
+                  },
                   title: 'Get Started',
                 ),
               ],
