@@ -16,7 +16,7 @@ class GetStartedPage extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
-              vertical: 80,
+              vertical: 60,
               horizontal: 40,
             ),
             decoration: const BoxDecoration(
