@@ -6,6 +6,7 @@ import 'package:spotify_flutter/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_flutter/core/configs/assets/app_images.dart';
 import 'package:spotify_flutter/core/configs/assets/app_vectors.dart';
 import 'package:spotify_flutter/core/configs/theme/app_color.dart';
+import 'package:spotify_flutter/presentation/auth/pages/signup_or_signin.dart';
 import 'package:spotify_flutter/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseModePage extends StatelessWidget {
@@ -129,7 +130,7 @@ class ChooseModePage extends StatelessWidget {
                         PageRouteBuilder(
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                                  const ChooseModePage(),
+                                  const SignupOrSigninPage(),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             const begin = 0.0;
